@@ -68,6 +68,8 @@ exports.handler = function(context, event, callback) {
 
 ```
 
+`Deply All`ボタンで再度デプロイします。
+
 ----
 ここで指定した`user`はアクセストークン生成時に`identity`として設定した値です。複数のclientを利用する場合は電話を着信させるための`identity`を別途保持し、指定する必要があります。
 
