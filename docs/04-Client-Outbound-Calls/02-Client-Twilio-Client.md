@@ -102,4 +102,4 @@ dialForm.addEventListener('submit', (event) => {
 
 ## 次の手順
 
-[Twilio Assetsへのアップロードと発信テスト](03-Assets-Outbound-Test.md)
+[手順3: Twilio Assetsへのアップロードと発信テスト](03-Assets-Outbound-Test.md)

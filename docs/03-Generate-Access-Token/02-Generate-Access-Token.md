@@ -58,8 +58,8 @@ exports.handler = function(context, event, callback) {
   const AccessToken = Twilio.jwt.AccessToken;
   const VoiceGrant = AccessToken.VoiceGrant;
 
-　// 今回追加分 
-　// 外部発信のみ許可
+  // 今回追加分 
+  // 外部発信のみ許可
   const voiceGrant = new VoiceGrant({
       outgoingApplicationSid: context.TWIML_APP_SID,
       incomingAllow: false
@@ -86,7 +86,7 @@ exports.handler = function(context, event, callback) {
       incomingAllow: false
   });
 
-　// 今回追加分 
+  // 今回追加分 
   // アクセストークンの生成
   const token = new AccessToken(
       context.ACCOUNT_SID,
