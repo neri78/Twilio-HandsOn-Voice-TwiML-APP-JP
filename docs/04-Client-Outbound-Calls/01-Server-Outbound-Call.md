@@ -2,7 +2,7 @@
 
 この手順は先ほどに引き続き、Twilio Functionに新しいFunction Pathを追加し、TwiML Appからの発信要求に対応するロジックを実装します。
 
-## 1-1: /callパスを追加
+## 1-1: 電話番号を環境変数に追加
 
 前のハンズオンで作成した`Function`のエディタ画面で再度`Environment Variables`を開き、次の変数を追加します。
 
