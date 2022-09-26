@@ -4,19 +4,27 @@
 
 ## 2-1: ファイルのダウンロード
 
-[こちら](../../samples/phone-v2.zip)からダウンロードしたファイルを解凍します。
+下記からクライアントアプリケーションのバージョン2をダウンロードし、解凍します。
 
-`phone-v2.html`には応答ボタンが追加されており、[Twilio Client JS SDK](https://jp.twilio.com/docs/voice/client/javascript)や`voice-v2.js`がロード時に読み込まれます。
+[ダウンロード phone-v2.zip](../../samples/phone-v2.zip)
+
+先ほどと同様にTwilio Assetsに`VISIBILITY`を`Public`としてアップロードします。必要に応じてデプロイも実施します。
+
+`phone-v2.html`には応答ボタンが追加されており、[Twilio Client JS SDK](https://www.twilio.com/docs/voice/client/javascript)や`voice-v2.js`がロード時に読み込まれます。
 
 ![Phone v2](../assets/05-Browser-Phone.png)
 
 ## 2-2: 着信時に応答ボタンを有効化
 
-`voice-v2.js`を任意のテキストエディタで開き、Twilio.Deviceの初期化後に合わせて着信時のイベントハンドラを登録します。着信時には`incoming`イベントが発生します。
+`voice-v2.js`をFunctions & Servicesのエディタで開き、Twilio.Deviceの初期化後に着信時のイベントハンドラを登録します。着信時には`incoming`イベントが発生します。
 
 下記のスニペット内のコメントを参考に実装してください。
 
 ```js
+// Twilio.Device
+let device;
+let call;
+
 InitButton.addEventListener('click', async() => {
 
     let response = await fetch('/token', {
@@ -25,21 +33,23 @@ InitButton.addEventListener('click', async() => {
             'Content-Type' : 'application/json'
         }
     });
-    let {token}  = await response.json();
-    
-    Twilio.Device.setup(token);
+    let {token} = await response.json();
 
-    Twilio.Device.on('ready', () => {
+    device = new Twilio.Device(token);
+
+    device.on('registered', () => {
         CallButton.disabled = false;
-        ConnectButton.disabled = true;
         InitButton.disabled = true;
     });
 
+    device.register();
+
     // 今回追加部分
     // Twilio Clientの着信時に応答ボタンを有効化
-    Twilio.Device.on('incoming', () => {
+    device.on('incoming', (incoming) => {
         CallButton.disabled = true;
         ConnectButton.disabled = false;
+        call = incoming;
     });
 });
 ```
@@ -58,25 +68,25 @@ dialForm.addEventListener('submit', (event) => {
     if (submitId === 'call') {
         const number = ToField.value;
         CallButton.disabled = true;
-        Twilio.Device.connect({ number: number});
+        console.log(number);
+    
+        device.connect({
+            params: { number: number}
+        });
         DisconnectButton.disabled = false;
     }
 
     else if (submitId === 'disconnect') {
-        Twilio.Device.disconnectAll();
+        device.disconnectAll();
         DisconnectButton.disabled = true;
         CallButton.disabled = false; 
-        ConnectButton.disabled = true;
     }
 
     // 今回追加部分
     // 応答ボタンがクリックされている場合
     else if (submitId === 'connect') {
-        // 現在のアクティブ接続を取得し、応答
-        const conn = Twilio.Device.activeConnection();
-        if (conn) {
-            conn.accept();
-        }
+        // 通話に応答
+        call.accept();
         DisconnectButton.disabled = false;
     }        
 });
@@ -84,21 +94,9 @@ dialForm.addEventListener('submit', (event) => {
 
 これで全ての実装が完了しました。
 
-## 2-4 ファイルをアップロード
+## 2-4 着信に対して/callパスを指定
 
-先ほどのハンズオンと同様に次のファイルをTwilio Assetsにアップロードします。
-
-|  FILE NAME  |  VISIBILITY  |　
-| ---- | ---- |
-|  voice-v2.js  |  Public  |
-|  phone-v2.html  |  Public  |
-
-アップロード後にFunctionをデプロイし、`phone-v2.html`のURLを控えておきます。
-
-
-## 2-5 着信に対して/callパスを指定
-
-最後にTwilio Functionsの`/call`パスを着信時の応答として設定しましょう。[電話番号コンソール](https://jp.twilio.com/console/phone-numbers/incoming)を開き、先ほど購入した番号をクリックします。
+最後にTwilio Functionsの`/call`パスを着信時の応答として設定しましょう。[電話番号コンソール](https://www.twilio.com/console/phone-numbers/incoming)を開き、先ほど購入した番号をクリックします。
 
 ![電話番号コンソール](../assets/05-Phone-Number-Console.png)
 
@@ -125,6 +123,6 @@ dialForm.addEventListener('submit', (event) => {
 ---
 このようにTwiML Appを用いるとブラウザで受発信ができる電話を実装できます。今回のハンズオンで作成したブラウザフォンはURLがわかってしまうと誰でも使えるので、実開発では認証後にページを表示するなどの対策が必要となります。
 
-ハンズオン後にもう使用しない場合は、[Functions](https://jp.twilio.com/console/functions/overview/services)からサービスの削除を忘れないようにしましょう。
+ハンズオン後にもう使用しない場合は、[Functions](https://www.twilio.com/console/functions/overview/services)からサービスを削除しましょう。
 
 ---

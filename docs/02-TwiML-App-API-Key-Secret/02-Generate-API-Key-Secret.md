@@ -1,20 +1,22 @@
 #  手順2: APIキーおよびAPIシークレットの生成
 
-この手順ではTwilioのサービスを利用するために必要なAPIキーおよびAPIシークレットを生成します。生成された情報はアクセストークンの生成時に利用します。
+この手順ではTwilioサービスを利用するために必要なAPIキーおよびAPIシークレットを生成します。生成された情報はアクセストークンの生成時に利用します。
 
-[コンソール - Dashboard](https://jp.twilio.com/console/project/settings)の`設定`からAPIキーを作成します。
+コンソールから[Authトークン&APIキー画面](https://www.twilio.com/console/project/api-keys/)を表示します。この際、本人確認のため、アカウントに登録されているメールアドレスに検証コードが送信されます。送られてきたコードを入力し、`Verify`ボタンをクリックします。
 
-[APIキー](https://jp.twilio.com/console/project/api-keys)を選択し、`新しいキーを作成する`ボタンをクリックします。
+![Verification Code](../assets/02-Console-Verification-Code.png)
 
-![コンソール - APIキーの作成](../assets/02-Console-Api-Key.png)
+続いて遷移した画面の右に表示されている`Create API key`ボタンをクリックします。
 
-`わかりやすい名前`の欄に任意の名前を入力し、キータイプは`Standard`とし、`APIキーを作成する`ボタンをクリックします。
+![Auth token & API Key](../assets/02-Console-Auth-Token-Api-Key.png)
+
+`Friendly name`の欄に任意の名前を入力し、`Region`は`United States (US1) - Default`、`Key type`は`Standard`とします。全ての入力・選択を確認したのち、`Create API Key`ボタンをクリックします。
 
 ![APIキー作成画面](../assets/02-Console-Api-Key-Create.png)
 
 
 
-作成された画面に表示されている、`SID`と、`SECRET`を控えておきます。
+作成された画面に表示されている、`SID`と、`Secret`を控えておきます。`Secret`はこの画面のみに表示されるため注意してください。
 
 ![APIキー作成後の画面](../assets/02-Console-Api-Key-Create-Secret.png)
 

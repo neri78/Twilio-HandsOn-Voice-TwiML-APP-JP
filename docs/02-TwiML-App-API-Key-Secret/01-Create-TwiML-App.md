@@ -4,7 +4,7 @@ TwiML Appを利用すると受発信をカスタムアプリケーションで�
 
 ## 1-1: コンソールでTwiML Appを作成
 
-[Programmable Voiceコンソール](https://jp.twilio.com/console/voice/twiml/apps)のTwiMLセクションを開き、`Create new TwiML App`ボタンをクリックします。
+[Programmable Voiceコンソール](https://www.twilio.com/console/voice/twiml/apps)のTwiMLセクションを開き、`Create new TwiML App`ボタンをクリックします。
 
 ![TwiML App](../assets/02-Create-TwiML-App.png)
 

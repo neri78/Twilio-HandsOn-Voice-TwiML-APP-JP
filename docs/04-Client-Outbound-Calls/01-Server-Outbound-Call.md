@@ -1,4 +1,4 @@
-#  手順1: サーバー側 - TwiML Appからの発信リクエストをハンドル
+#  手順1: サーバー側の実装 - TwiML Appからの発信リクエストをハンドル
 
 この手順は先ほどに引き続き、Twilio Functionに新しいFunction Pathを追加し、TwiML Appからの発信要求に対応するロジックを実装します。
 

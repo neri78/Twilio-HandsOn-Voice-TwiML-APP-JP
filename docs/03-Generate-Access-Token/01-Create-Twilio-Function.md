@@ -1,16 +1,16 @@
 #  手順1: Twilio Functionの作成
 
-この手順では[Twilio Functions](https://jp.twilio.com/docs/runtime/functions)を用いてサーバーレス実行環境を作成します。
+この手順では[Twilio Functions](https://www.twilio.com/docs/runtime/functions)を用いてサーバーレス実行環境を作成します。
 
 Twilio FunctionsはWebhook（Webアプリケーション）を利用する方法に比べて次の利点があります。
 
 - サーバーレス実行環境を利用できるため、ローカル環境や別のクラウド環境でWebアプリケーションをホスティングする必要がない。
 - セキュアかつ、オートスケーリング機能が提供されている。
-- [Twilio RESTヘルパーライブラリー](https://jp.twilio.com/docs/libraries/node)が環境にあらかじめ組み込まれている。
+- [Twilio RESTヘルパーライブラリー](https://www.twilio.com/docs/libraries/node)が環境にあらかじめ組み込まれている。
 
 ## 手順2-1: サービスを作成
 
-[Functions](https://jp.twilio.com/console/functions)を開くか、サイドナビゲーションからクリックしFunctionsコンソールを開きます。
+[Functions and Assets](https://www.twilio.com/console/functions)を直接開くか、[Explore Products](https://console.twilio.com/develop/explore)から`Functions and Assets`を選択します。
 
 ![Functionsコンソール](../assets/03-Functions-Console.png)
 
@@ -32,7 +32,9 @@ Functionのパス設定を求められます。ここではアクセストーク
 
 ![Functions - パスを指定](../assets/03-Functions-Set-Path.png)
 
-デフォルトではここで作成したFunctionは`Protected`と設定されます。この場合、Functionの実行には[有効なTwilioリクエスト署名](https://jp.twilio.com/docs/runtime/functions-assets-api/api/understanding-visibility-public-private-and-protected-functions-and-assets#protected)が必要となり、外部からのアクセスを抑制できます。今回のハンズオンでは実行結果を簡単に確認するため、Functionパスを`Public`と設定します。
+デフォルトでここで作成したFunctionは`Protected`と設定されます。この場合、Functionの実行には[有効なTwilioリクエスト署名](https://www.twilio.com/docs/runtime/functions-assets-api/api/understanding-visibility-public-private-and-protected-functions-and-assets#protected)が必要となり、外部からのアクセスを抑制できます。今回のハンズオンでは実行結果を簡単に確認するため、Functionパスを`Public`と設定します。
+
+![Functions - Visibility](../assets/03-Functions-Visibility.png)
 
 ------
 Functionパスのアクセスレベルを`Public`と指定した場合は外部からのリクエストを全て許可することになります。今回のアクセストークンと自分が保有するTwilio番号を使うと音声通話の発信・着信が可能となるため、トークン発行の前に認証する、トークンの生存期間を可能な限り短くする、などの対策が必要となります。

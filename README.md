@@ -1,6 +1,4 @@
-# Twilio-HandsOn-Voice-TwiML-APP-JP
-
-![Twilio-HandsOn-Voice-TwiML-APP-JP](docs/assets/Voice-HandsOn-TwiML-App-Header.jpg)
+# Twilio Programmable Voiceを用いたブラウザーフォン作成ハンズオン
 
 [Twilio Programmable Voice](https://www.twilio.com/ja/voice)を用いてブラウザフォンを構築するハンズオン手順書です。
 
