@@ -139,6 +139,7 @@ exports.handler = function(context, event, callback) {
 `Save`ボタンで保存後、`Deploy All`ボタンをクリックしてFunctionをデプロイします。
 
 デプロイ後、PathのURLをブラウザで開いてください。
+
 ![Twilio Functions - Copy URL](../assets/03-Functions-Path-Url.png)
 
 `token`の値を[jwt.io](https://jwt.io/)でデコードするとidentityやVoiceGrantの値を確認できます。
