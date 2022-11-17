@@ -10,4 +10,4 @@
 
 ## 次のハンズオン
 
-[ハンズオン: TwiML Appの作成とAPIキー/APIシークレットの生成](../2-TwiML-App-API-Key-Secret/00-Overview.md)
+[ハンズオン: TwiML Appの作成とAPIキー/APIシークレットの生成](../02-TwiML-App-API-Key-Secret/00-Overview.md)
