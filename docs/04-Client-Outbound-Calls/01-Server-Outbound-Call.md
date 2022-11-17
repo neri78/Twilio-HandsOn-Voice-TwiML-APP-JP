@@ -4,11 +4,11 @@
 
 ## 1-1: 電話番号を環境変数に追加
 
-前のハンズオンで作成した`Function`のエディタ画面で再度`Environment Variables`を開き、次の変数を追加します。
+前のハンズオンで作成した`Function`のエディタ画面で再度`Environment Variables`を開き、次の変数を追加します。  
 
-|  KEY  |  VALUEに設定する値  |　
-| ---- | ---- |
-|  PHONE_NUMBER  |  購入した番号（E.164フォーマット）  |
+| KEY | VALUEに設定する値 |　
+| :---- | :---- |
+|  PHONE_NUMBER | 購入した番号（E.164フォーマット）|  
 
 
 ## 1-2: /callパスを追加し、TwiMLを返すロジックを実装
