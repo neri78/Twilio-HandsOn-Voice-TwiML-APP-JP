@@ -10,11 +10,11 @@
 
 この画面では環境変数を指定できます。先ほど控えたそれぞれの値を次の`KEY`名で追加します。  
 
-|  KEY  |  VALUEに設定する値  |　
-| ---- | ---- |
-|  TWIML_APP_SID  |  TwiML Appを作成した際に生成されたSID  |
-|  API_KEY  |  APIキーの値  |
-|  API_SECRET  |  APIシークレットの値  |
+|KEY| VALUEに設定する値| |
+|:----|:----|:----|
+|TWIML_APP_SID| TwiML Appを作成した際に生成されたSID|
+|API_KEY| APIキーの値|
+|API_SECRET| APIシークレットの値|
   
   
 環境変数を追加すると画面に表示されます。
