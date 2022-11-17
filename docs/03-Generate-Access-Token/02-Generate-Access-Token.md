@@ -8,14 +8,15 @@
 
 ![Twilio Functions - Open Environment Variables](../assets/03-Functions-Open-Environment-Variables.png)
 
-この画面では環境変数を指定できます。先ほど控えたそれぞれの値を次の`KEY`名で追加します。
+この画面では環境変数を指定できます。先ほど控えたそれぞれの値を次の`KEY`名で追加します。  
 
 |  KEY  |  VALUEに設定する値  |　
 | ---- | ---- |
 |  TWIML_APP_SID  |  TwiML Appを作成した際に生成されたSID  |
 |  API_KEY  |  APIキーの値  |
 |  API_SECRET  |  APIシークレットの値  |
-
+  
+  
 環境変数を追加すると画面に表示されます。
 
 ![Twilio Functions - Set Environment Variables](../assets/03-Functions-Set-Environment-Variables.png)
@@ -82,7 +83,7 @@ exports.handler = function(context, event, callback) {
   const VoiceGrant = AccessToken.VoiceGrant;
 
   const voiceGrant = new VoiceGrant({
-      outgoingApplicationSid: context.TWIML_APP_SID;
+      outgoingApplicationSid: context.TWIML_APP_SID,
       incomingAllow: false
   });
 
@@ -117,14 +118,14 @@ exports.handler = function(context, event, callback) {
   const VoiceGrant = AccessToken.VoiceGrant;
 
   const voiceGrant = new VoiceGrant({
-      outgoingApplicationSid: TWIML_APP_SID;
+      outgoingApplicationSid: context.TWIML_APP_SID,
       incomingAllow: false
   });
 
   const token = new AccessToken(
-      ACCOUNT_SID,
-      API_KEY,
-      API_SECRET,
+      context.ACCOUNT_SID,
+      context.API_KEY,
+      context.API_SECRET,
       { identity: identity}
   );
 
