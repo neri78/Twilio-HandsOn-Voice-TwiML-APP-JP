@@ -14,11 +14,11 @@
 
 下記のファイルを選択し、アップロードします。その際、`VISIBILITY`を`Public`と設定します。
 
-|  FILE NAME  |  VISIBILITY  |　
-| ---- | ---- |
-|  style.css  |  Public  |
-|  voice.js  |  Public  |
-|  phone.html  |  Public  |
+|FILE NAME | VISIBILITY　|
+|:----|:----|
+|style.css| Public|
+|voice.js| Public|
+|phone.html| Public|
 
 ![Twilio Assets - Client Uploaded](../assets/04-Upload-Assets-Client-App.png)
 
